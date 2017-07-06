@@ -1,0 +1,60 @@
+{
+  "name": "biojs-vis-eventmap",
+  "description": "View events from TeSS on a map",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ElixirTeSS/biojs-vis-eventmap",
+  "author": {
+    "name": "Niall Beard",
+    "email": "niall.beard@manchester.ac.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ElixirTeSS/biojs-vis-eventmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ElixirTeSS/vis-eventmap/issues"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "mkdirp build && browserify -r ./:vis-eventmap -o build/eventmap.js",
+    "build-browser": "npm run build",
+    "prepublish": "npm run build",
+    "watch": "watchify -r ./:vis-eventmap -v -o build/eventmap.js",
+    "w": "prunner \"npm run sniper\" \"npm run watch\"",
+    "sniper": "sniper ."
+  },
+  "dependencies": {
+    "biojs-rest-tessapi": "^0.1.2",
+    "google-maps": "^3.2.1"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "browserify": "6.x",
+    "sniper": "0.x",
+    "watchify": "^1.0.6",
+    "prunner": "1.x",
+    "chai": "1.x",
+    "mocha": "1.x"
+  },
+  "sniper": {
+    "js": [
+      "/build/eventmap.js"
+    ],
+    "snippets": [
+      "examples"
+    ],
+    "first": "simple"
+  },
+  "keywords": [
+    "elixir",
+    "tess",
+    "map view",
+    "training",
+    "life science",
+    "conferences",
+    "planning",
+    "biojs"
+  ]
+}
